@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>==じゃいけん==</title>
+
+  <link rel="stylesheet" type="text/css"
+    href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-14/css/reset.css">
+  <link rel="stylesheet" type="text/css"
+    href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-14/css/5-14.css">
+</head>
+
+<body>
+  <header>
+    <h>
+      </h1>
+  </header>
+
+  <main>
+
+
+    <div class="btns">
+      <div id="gu_btn">グー</div>
+      <div id="cho_btn">チョキ</div>
+      <div id="par_btn">パー</div>
+    </div>
+
+    <div class="img__inner">
+      <img class="img">
+    </div><!-- .img__inner -->
+
+
+    <div class="main_results">
+      <div id="echo_hand"></div>
+      <div id="echo_result"></div>
+      <div id="counts">提案回数</div>
+      <div id="echo_counts">0</div>
+      <div>提案が通った回数</div>
+      <div id="win_counts">0</div>
+      <div>通過率は？</div>
+      <div id="win_rate">0</div>
+
+    </div>
+
+    </div>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    //ここに処理を追加
+
+    //ぐー画像
+    $(function () {
+      const imgs = ["g_1.png", "g_2.png","g_3.png","g_4.png"];  // 画像ファイル名
+      let index = 0;  // インデックス番号
+
+
+      const min = 1;
+      const max = 4;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+
+      // 初期画像の表示
+      $('.img').attr('src', 'img/' + imgs[index]);
+
+      // ボタンクリックイベント
+      $('#gu_btn').on("click", function () {
+        // 最後の画像判定
+        if (index == imgs.length - 1) {
+          index = 0;
+        } else {
+          //index++;
+          randomNumber++;
+        }
+        // 画像の切り替え
+        $('.img').attr('src', 'img/' + imgs[index]);
+      });
+    });
+
+    $("gu_btn").on("click",function (){
+
+    })
+
+
+    $("#gu_btn").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      const gu_btn = 0;
+      const cho_btn = 1;
+      const par_btn = 2;
+
+      //勝ったカウント
+      let winCount = $("#win_counts").text();
+
+
+      // 相手
+      if (randomNumber === 0) {
+        // $("#echo_hand").text("グー");
+        $('#echo').html('<img src="img')
+      } else if (randomNumber === 1) {
+        $("#echo_hand").text("チョキ");
+      } else {
+        $("#echo_hand").text("パー");
+      }
+
+      // 勝敗
+      if (randomNumber === cho_btn) {
+        $("#echo_result").text("勝ち");
+        winCount++;
+
+      } else if (randomNumber === gu_btn) {
+        $("#echo_result").text("あいこ");
+      } else {
+        $("#echo_result").text("負け");
+      }
+
+      //カウント
+      let thisCount = $("#echo_counts").text();
+      thisCount = Number(thisCount);
+      thisCount = thisCount + 1;
+      $("#echo_counts").text(thisCount);
+
+      //勝った数をhtmlに反映
+      $("#win_counts").text(winCount);
+
+      //勝率 計算
+      $("#win_rate").text(winCount / thisCount * 100);
+
+    });
+
+    $("#cho_btn").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const gu_btn = 0;
+      const cho_btn = 1;
+      const par_btn = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      //勝ったカウント定義
+      let winCount = $("#win_counts").text();
+
+      // 相手
+      if (randomNumber === 0) {
+        $("#echo_hand").text("ぐー");
+      } else if (randomNumber === 1) {
+        $("#echo_hand").text("ちょき");
+      } else {
+        $("#echo_hand").text("ぱー");
+      }
+
+      // 勝敗
+      if (randomNumber === cho_btn) {
+        $("#echo_result").text("あいこ");
+      } else if (randomNumber === gu_btn) {
+        $("#echo_result").text("負け");
+      } else {
+        $("#echo_result").text("勝ち");
+        winCount++;
+      }
+
+      //カウント
+      let thisCount = $("#echo_counts").html();
+      thisCount = Number(thisCount);
+      thisCount = thisCount + 1;
+      $("#echo_counts").text(thisCount);
+
+      //勝った数をhtmlに反映
+      $("#win_counts").text(winCount);
+
+      //勝率 計算
+      $("#win_rate").text(winCount / thisCount * 100);
+
+    });
+
+    $("#par_btn").on("click", function () {
+      const min = 0;
+      const max = 2;
+      const gu_btn = 0;
+      const cho_btn = 1;
+      const par_btn = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      //勝ったカウント定義
+      let winCount = $("#win_counts").text();
+
+      // 相手
+      if (randomNumber === 0) {
+        $("#echo_hand").text("ぐー");
+      } else if (randomNumber === 1) {
+        $("#echo_hand").text("ちょき");
+      } else {
+        $("#echo_hand").text("ぱー");
+      }
+
+      // 勝敗
+      if (randomNumber === cho_btn) {
+        $("#echo_result").text("負け");
+      } else if (randomNumber === gu_btn) {
+        $("#echo_result").text("勝ち");
+        winCount++;
+      } else {
+        $("#echo_result").text("あいこ");
+      }
+
+      //カウント
+      let thisCount = $("#echo_counts").text();
+      thisCount = Number(thisCount);
+      thisCount = thisCount + 1;
+      $("#echo_counts").text(thisCount);
+
+      //勝った数をhtmlに反映
+      $("#win_counts").text(winCount);
+
+      //勝率 計算
+      $("#win_rate").text(winCount / thisCount * 100);
+
+    });
+
+  </script>
+
+</body>
+
+</html>

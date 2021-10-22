@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    /* font-size: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center; 
+}
+
+main {
+    border-bottom: 1px solid #ccc;
+    background-color: brown;
+    height: 1000px;
+    width: 80%;
+}
+
+footer {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+p {
+    font-size: 200%;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    height: 200px;
+}
+
+ul {
+    padding: 0;
+    border-top: 1px solid #000000;
+    display: table;
+    /* 定義 */
+    table-layout: fixed;
+    width: 100%;
+    color: blue;
+    background-color: blueviolet;
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display: table-cell;
+    /* 定義 */
+    cursor: pointer;
+}
+
+li:hover {
+    background: #0066CC;
+    color: #fff;
+}
+
+.win_rate {
+    display: flex;
+    background-color: aqua;
+}
+
+.main_results{
+    margin-left: 50px;
+}
